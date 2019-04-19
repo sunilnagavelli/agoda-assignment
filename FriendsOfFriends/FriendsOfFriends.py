@@ -23,11 +23,7 @@ if __name__ == '__main__':
   A = input("Enter A's friends(csv format): ").split(',')
   B = input("Enter B's friends(csv format): ").split(',')
   C = input("Enter C's friends(csv format): ").split(',')
-  '''
-  A=['B','R','T','J']
-  B=['C','A','F','J']
-  C=['B','I','P','F']
-  '''
+
   all_friends = {}
 
   all_friends['A']=[value.strip(' ') for value in A]

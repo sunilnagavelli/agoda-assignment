@@ -44,7 +44,8 @@ docker run --tty --interactive --name palindrome-check sunilnagavelli/friendsoff
 Example:
 
 ```bash
-[nsunil@LAMU02WJ2LSHTD6 FriendOfFriends (master)]$ docker run -ti --name friendsoffriends sunilnagavelli/friendsoffriends:latest
+[sunil@macpro FriendOfFriends (master)]$ docker run -ti --name friendsoffriends sunilnagavelli/friendsoffriends:latest
+
 Enter A's friends(csv format): B,F,L,D
 Enter B's friends(csv format): A,C,L,M
 Enter C's friends(csv format): B,R,T,U

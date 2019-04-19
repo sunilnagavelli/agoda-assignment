@@ -21,7 +21,7 @@ cases.
 * Provide a Dockerfile for your solution.
 * Friends are 2 ways relationship. If B is A's friend, then A is also B's friend. Does your
 implementation correctly handle this fact?
-• A's friends should never be shown up as A's friends of friends. Are there any case in your
+* A's friends should never be shown up as A's friends of friends. Are there any case in your
 implementation that might happen?
 
 ### Solution:
@@ -39,7 +39,7 @@ The programming language choosen for this solution is Python, The code can be vi
 
 Implement a modified palindrome, where it is case insensitive and ignore any non-alphanumeric
 characters
-Example Modified Palindrome:
+* Example Modified Palindrome:
 • _!E#@y#e
 • MaDaM!!
 • RaCEC@A@R
@@ -59,11 +59,10 @@ The programming language choosen for this solution is Python, The code can be vi
 
 #### Steps to run
 
-1. Once you check out the repo, Please open the change dir to the Palindrome folder
+1. Once you check out the repo, Please open enter into Palindrome folder
 2. The Dockerfile provided in this folder will help you to create an image and run the container, Below are the commands to do so.
   ```
-  docker build --tag sunilnagavelli/modifiedpalindrome:latest
-
+  docker build --tag sunilnagavelli/modifiedpalindrome:latest .
   ```
 3. Now run the docker file with below command
 ```
@@ -78,4 +77,3 @@ root@127d1a956cc3:/usr/src/app#
 Enter a string: De@lia's de*bonair d~ahlias, poor, d%rop, or dr&oop. Sail, H(adrian; Obe#d s$ailed
 Palindrome
 ```
-=======

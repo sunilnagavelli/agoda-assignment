@@ -10,7 +10,6 @@ def color_code(color_name):
 
 def check_palindrome(input):
   input = input.replace(" ","").lower()
-  result = True
   length = len(input)
   left = 0
   right = length - 1
@@ -21,12 +20,11 @@ def check_palindrome(input):
       right = right - 1
     if input[left] in special_chars or input[right] in special_chars:
       continue
-    if input[left] != input[right]:
-      result = False
-      return result
+    elif input[left] != input[right]:
+      return False
     left += 1
     right -= 1
-  return result
+  return True
 
 def main():
   print(color_code('yellow')+"Enter a string: "+color_code('none'), end='')
@@ -56,6 +54,8 @@ def quit_program():
 if __name__ == '__main__':
   global special_chars 
   special_chars = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~0123456789"
+  assert check_palindrome('Ra@ce3Car!') == True #racecar with special chars ignored
+  assert check_palindrome('Rot0r') == False #rotor has a digit in place of '0'
   main()
         
 #print(check_palindrome("Delia's debonair dahlias, poor, drop, or droop. Sail, Hadrian; Obed sailed"))

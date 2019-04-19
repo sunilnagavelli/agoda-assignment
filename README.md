@@ -40,9 +40,9 @@ The programming language choosen for this solution is Python, The code can be vi
 Implement a modified palindrome, where it is case insensitive and ignore any non-alphanumeric
 characters
 * Example Modified Palindrome:
-• _!E#@y#e
-• MaDaM!!
-• RaCEC@A@R
+  * _!E#@y#e
+  * MaDaM!!
+  * RaCEC@A@R
 ```java
 boolean isPalindrome(String word) {
 //Implement Me

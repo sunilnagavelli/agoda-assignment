@@ -1,4 +1,4 @@
-# [](https://www.agoda.com "agoda's Homepage") <img src="https://cdn6.agoda.net/images/MVC/default/agoda-logo.svg?sanitize=true&raw=true" width="120" height="30" /> Coding Assignment
+# [](https://www.agoda.com)<img align="center" width="120" height="30" src="https://cdn6.agoda.net/images/MVC/default/agoda-logo.svg?sanitize=true&raw=true"/> Coding Assignment
 
 
 ## 1. Friend Of Friends

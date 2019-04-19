@@ -30,6 +30,35 @@ The programming language choosen for this solution is Python, The code can be vi
 
 #### Steps to run
 
+1. Once you check out the repo, Please open enter into ``FriendsOfFriends`` folder
+2. The Dockerfile provided in this folder will help you to create an image and run the container, Below are the commands to do so.
+  ```
+  docker build --tag sunilnagavelli/friendsoffriends:latest .
+  ```
+3. Now run the docker file with below command
+```
+docker run --tty --interactive --name palindrome-check sunilnagavelli/friendsoffriends:latest
+```
+4. At the prompt, Please enter your string to check if it is a palindrome or not
+
+Example:
+
+```bash
+[nsunil@LAMU02WJ2LSHTD6 FriendOfFriends (master)]$ docker run -ti --name friendsoffriends sunilnagavelli/friendsoffriends:latest
+Enter A's friends(csv format): B,F,L,D
+Enter B's friends(csv format): A,C,L,M
+Enter C's friends(csv format): B,R,T,U
+
+Friend suggestions for A: ['C', 'L', 'M']
+
+Friend suggestions for B: ['F', 'L', 'D', 'R', 'T', 'U']
+
+Friend suggestions for C: ['A', 'L', 'M']
+```
+Explanation: 
+  * In the above example, We have passed B,F,L,D as the A's list of friends
+  * Friend suggestions C,L,M were given because, L,M are first order suggestions, C is 2nd order which friend of friend.
+
 -----
 
 ## 2. Modified Palindrome
@@ -59,7 +88,7 @@ The programming language choosen for this solution is Python, The code can be vi
 
 #### Steps to run
 
-1. Once you check out the repo, Please open enter into Palindrome folder
+1. Once you check out the repo, Please open enter into ```Palindrome``` folder
 2. The Dockerfile provided in this folder will help you to create an image and run the container, Below are the commands to do so.
   ```
   docker build --tag sunilnagavelli/modifiedpalindrome:latest .
@@ -77,3 +106,13 @@ root@127d1a956cc3:/usr/src/app#
 Enter a string: De@lia's de*bonair d~ahlias, poor, d%rop, or dr&oop. Sail, H(adrian; Obe#d s$ailed
 Palindrome
 ```
+Few complex strings below to test
+
+```
+
+Delia's debonair dahlias, poor, drop, or droop. Sail, Hadrian; Obed sailed
+
+Are we not pure? “No, sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man—a prisoner up to new era.
+
+```
+More can be found in this from **Grammerly** [link](https://www.grammarly.com/blog/16-surprisingly-funny-palindromes)  

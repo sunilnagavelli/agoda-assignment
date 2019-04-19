@@ -2,7 +2,7 @@ from os import system
 
 system('clear')
 
-def color_code(color_name):
+def colorize(color_name):
   param='\033[0;'
   colors={'red':param+"31m",'green':param+"32m",'yellow':param+"33m",
     'blue':param+"34m",'magenta':param+"35m",'cyan':param+"36m",'none':param+"m"}
@@ -27,11 +27,11 @@ def check_palindrome(input):
   return True
 
 def main():
-  print(color_code('yellow')+"Enter a string: "+color_code('none'), end='')
+  print(colorize('yellow')+"Enter a string: "+colorize('none'), end='')
   input_str = input()
   if len(input_str) > 1:
     result = check_palindrome(input_str)
-    print(color_code('green')+"Palindrome"+color_code('none') if result else color_code('red')+"Not a Palindrome"+color_code('none'))
+    print(colorize('green')+"Palindrome"+colorize('none') if result else colorize('red')+"Not a Palindrome"+colorize('none'))
   else:
     count = 1
     while(count <= 3):
@@ -57,5 +57,3 @@ if __name__ == '__main__':
   assert check_palindrome('Ra@ce3Car!') == True #racecar with special chars ignored
   assert check_palindrome('Rot0r') == False #rotor has a digit in place of '0'
   main()
-        
-#print(check_palindrome("Delia's debonair dahlias, poor, drop, or droop. Sail, Hadrian; Obed sailed"))

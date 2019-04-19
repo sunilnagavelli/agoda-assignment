@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  sunilnagavelli/palindrome_che:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: palindrome_check
+    volumes: 
+      - .:/home/appusr
+    

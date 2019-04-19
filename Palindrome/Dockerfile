@@ -1,15 +1,22 @@
-FROM ubuntu:18.04
+FROM alpine:3.9
 
 LABEL maintainer="<Sunil Nagavelli>sunilngvli@gmail.com"
 
-RUN \
-  apt-get update && \
-  apt-get install -y python3
+RUN apk add --no-cache python3 && \
+    python3 -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip3 install --upgrade pip setuptools && \
+    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
+    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
+    rm -r /root/.cache
 
-USER ubuntu
+RUN addgroup -S appgroup && adduser -S appusr -G appgroup -h /home/appusr &&\
+		mkdir /home/appusr/scripts
 
-COPY IsPalindrome.py /usr/src/app/
+COPY IsPalindrome.py /home/appusr/scripts
 
-WORKDIR /usr/src/app
+WORKDIR /home/appusr/scripts
 
-ENTRYPOINT [ "python3", "./IsPalindrome.py" ]
+RUN chmod 755 IsPalindrome.py
+
+ENTRYPOINT [ "python", "./IsPalindrome.py" ]

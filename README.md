@@ -72,7 +72,7 @@ Explanation:
           - J
           - R
           - P
-    ```
+  ```
 
 -----
 

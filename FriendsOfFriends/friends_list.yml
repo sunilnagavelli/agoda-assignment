@@ -1,0 +1,18 @@
+---
+version: '3'
+friends_list:
+  A:
+    - B
+    - X
+    - D
+    - M
+  B:
+    - A
+    - C
+    - D
+    - P
+  C:
+    - B
+    - J
+    - R
+    - P

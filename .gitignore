@@ -160,9 +160,9 @@ local.properties
 .scala_dependencies
 .worksheet
 
-# IntelliJ
+# Mac OS
 .DS_Store
-.idea
+*.idea
 
 # Visual Studio Code
 .vscode/*

@@ -30,34 +30,49 @@ The programming language choosen for this solution is Python, The code can be vi
 
 #### Steps to run
 
-1. Once you check out the repo, Please open enter into ``FriendsOfFriends`` folder
-2. The Dockerfile provided in this folder will help you to create an image and run the container, Below are the commands to do so.
+1. Once you check out the repo, Please open enter into ```FriendsOfFriends``` folder
+2. Update the ```friends_list.yml``` file with the desired relations.
+3. The Dockerfile provided in this folder will help you to create an image and run the container, Below are the commands to do so.
   ```
   docker build --tag sunilnagavelli/friendsoffriends:latest .
   ```
-3. Now run the docker file with below command
+4. Now run the docker file with below command
 ```
-docker run --tty --interactive --name palindrome-check sunilnagavelli/friendsoffriends:latest
+docker run --tty --interactive --name friendsoffriends sunilnagavelli/friendsoffriends:latest
 ```
-4. At the prompt, Please enter your string to check if it is a palindrome or not
+5. At the prompt, Please enter the person name, According to the line 2.
 
 Example:
 
 ```bash
-[nsunil@LAMU02WJ2LSHTD6 FriendOfFriends (master)]$ docker run -ti --name friendsoffriends sunilnagavelli/friendsoffriends:latest
-Enter A's friends(csv format): B,F,L,D
-Enter B's friends(csv format): A,C,L,M
-Enter C's friends(csv format): B,R,T,U
-
-Friend suggestions for A: ['C', 'L', 'M']
-
-Friend suggestions for B: ['F', 'L', 'D', 'R', 'T', 'U']
-
-Friend suggestions for C: ['A', 'L', 'M']
+[sunil@macbook-pro FriendsOfFriends (master)]$ docker run -ti --name friendsoffriends sunilnagavelli/friendsoffriends:latest
+Enter the name of person: A
+Friend suggestions for A: ['P', 'C']
 ```
 Explanation: 
-  * In the above example, We have passed B,F,L,D as the A's list of friends
-  * Friend suggestions C,L,M were given because, L,M are first order suggestions, C is 2nd order which friend of friend.
+  * In the above example, We have passed person name as A and the program suggest P,C as friends.
+  * P & C are friends of B who is a friend of A.
+  ```
+    cat friends_list.yml 
+    ---
+      version: '3'
+      friends_list:
+        A:
+          - B
+          - X
+          - D
+          - M
+        B:
+          - A
+          - C
+          - D
+          - P
+        C:
+          - B
+          - J
+          - R
+          - P
+    ```
 
 -----
 
@@ -101,7 +116,7 @@ docker run --tty --interactive --name palindrome-check sunilnagavelli/palindrome
 
 Example:
 ```bash
-[sunil@macpro]$ docker run -ti --name palindrome-check sunilnagavelli/palindromecheck:latest
+[sunil@macbook-pro]$ docker run -ti --name palindrome-check sunilnagavelli/palindromecheck:latest
 root@127d1a956cc3:/usr/src/app# 
 Enter a string: De@lia's de*bonair d~ahlias, poor, d%rop, or dr&oop. Sail, H(adrian; Obe#d s$ailed
 Palindrome

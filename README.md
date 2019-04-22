@@ -45,34 +45,53 @@ docker run --tty --interactive --name friendsoffriends sunilnagavelli/friendsoff
 Example:
 
 ```bash
-[sunil@macbook-pro FriendsOfFriends (master)]$ docker run -ti --name friendsoffriends sunilnagavelli/friendsoffriends:latest
+[sunil@macbook-pro FriendsOfFriends (master)]$ docker exec -ti friends_of_friends /bin/sh
+~/scripts $ source /etc/profile
+[appusr@2179951bd285 scripts]$ more friends_list.yml 
+---
+version: '3'
+friends_list:
+  A:
+    - B
+    - X
+    - D
+    - M
+  B:
+    - A
+    - C
+    - D
+    - P
+  C:
+    - B
+    - J
+    - R
+    - P
+  D:
+    - M
+    - J
+    - B
+    - A
+[appusr@2179951bd285 scripts]$ python friends_of_friends.py 
 Enter the name of person: A
-Friend suggestions for A: ['P', 'C']
+Friend suggestions for A: ['P', 'J', 'C']
+
+[appusr@2179951bd285 scripts]$ python friends_of_friends.py 
+Enter the name of person: B
+Friend suggestions for B: ['M', 'X', 'R', 'J']
+
+[appusr@2179951bd285 scripts]$ python friends_of_friends.py C
+Enter the name of person: C
+Friend suggestions for C: ['A', 'D']
+
+[appusr@2179951bd285 scripts]$ python friends_of_friends.py
+Enter the name of person: D
+Friend suggestions for D: ['C', 'P', 'X']
 ```
 Explanation: 
-  * In the above example, We have passed person name as A and the program suggest P,C as friends.
-  * P & C are friends of B who is a friend of A.
-  ```
-    cat friends_list.yml 
-    ---
-      version: '3'
-      friends_list:
-        A:
-          - B
-          - X
-          - D
-          - M
-        B:
-          - A
-          - C
-          - D
-          - P
-        C:
-          - B
-          - J
-          - R
-          - P
-  ```
+  * In the above example, We have passed person name as A and the program suggest P,J,C as friends.
+  * P and C are friends of B who is a friend of A. 
+  * J is friend of D who is a friend of A.
+  * The suggestions will not show any existing friends of A.
 
 -----
 

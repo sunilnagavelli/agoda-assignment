@@ -22,4 +22,10 @@ WORKDIR /home/appusr/scripts
 
 RUN chmod 755 friends_of_friends.py
 
+RUN echo 'export PS1="[\u@\h \[\033[36m\]\W\[\033[0m]$ "'>>/etc/profile
+
+USER appusr
+
+RUN source /etc/profile
+
 ENTRYPOINT [ "python", "./friends_of_friends.py" ]
